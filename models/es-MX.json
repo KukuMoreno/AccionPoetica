@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "accion poetica",
+            "invocationName": "accion poetica urbana",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
