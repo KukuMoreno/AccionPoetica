@@ -1,0 +1,44 @@
+{
+    "skillManifest": {
+      "publishingInformation": {
+        "locales": {
+          "es-Mx": {
+            "summary": "Poesia de una persona",
+            "examplePhrases": [
+              "Alexa abre Accion Poetica",
+              "Alexa abre Accion Poetica y escribe una poesia",
+              "Alexa corre Accion Poetica"
+            ],
+            "keywords": [
+              "Poesia",
+              "Accion",
+              "Urbana"
+            ],
+            "name": "Accion Poetica",
+            "description": "Menciona un peoma de una persona"
+          }
+        },
+        "isAvailableWorldwide": true,
+        "testingInstructions": "Sample Testing Instructions.",
+        "category": "EDUCATION_AND_REFERENCE",
+        "distributionCountries": []
+      },
+      "apis": {
+        "custom": {
+          "endpoint": {
+            "sourceDir": "lambda/custom",
+            "uri": "ask-custom-how-to-default"
+          }
+        }
+      },
+      "manifestVersion": "1.0",
+      "permissions": [],
+      "privacyAndCompliance": {
+        "allowsPurchases": false,
+        "isExportCompliant": true,
+        "containsAds": false,
+        "isChildDirected": false,
+        "usesPersonalInfo": false
+      }
+    }
+  }
