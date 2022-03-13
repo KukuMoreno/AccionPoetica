@@ -1,53 +1,120 @@
 {
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "accion poetica urbana",
-            "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
-                },
-                {
-                    "name": "PoesiaIntent",
-                    "slots": [
-                        {
-                            "name": "nombre",
-                            "type": "AMAZON.FirstName"
-                        }
-                    ],
-                    "samples": [
-                        "escribe poesía",
-                        "dame un poema",
-                        "escribe un poema",
-                        "un poema",
-                        "unas líneas para {nombre}",
-                        "un poema para {nombre}",
-                        "poema para {nombre}",
-                        "escribe poesia para {nombre}"
-                    ]
-                },
-                {
-                    "name": "AMAZON.PauseIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.ResumeIntent",
-                    "samples": []
-                }
-            ],
-            "types": []
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "accion poetica",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "PoesiaIntent",
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "Se llama {nombre}",
+                "{nombre}",
+                "Su nombre es {nombre}"
+              ]
+            }
+          ],
+          "samples": [
+            "escribe poesía",
+            "dame un poema",
+            "escribe un poema",
+            "un poema",
+            "unas líneas para {nombre}",
+            "un poema para {nombre}",
+            "poema para {nombre}",
+            "escribe poesia para {nombre}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
         }
-    }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "PoesiaIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1373605271688"
+          },
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.454424468052.194401721896",
+                "confirmation": "Confirm.Slot.454424468052.194401721896"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.454424468052.194401721896",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Para quién es el poema?"
+          },
+          {
+            "type": "PlainText",
+            "value": "¿Como se llama la persona que va dirigido el poema?"
+          },
+          {
+            "type": "PlainText",
+            "value": "¿Cuál es el nombre de la persona que va dirigido el poema?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.454424468052.194401721896",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "El poema es para {nombre} , verdad?"
+          },
+          {
+            "type": "PlainText",
+            "value": "El poema va dirigido a {nombre} , verdad?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.1373605271688",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Esta seguro de escuchar el poema?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "10"
 }
